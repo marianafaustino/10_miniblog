@@ -9,7 +9,7 @@ const Login = () => {
     const [password, setPassword]= useState("")
     const [error, setError]= useState("")
 
-    const {createUser, error: authError, loading}= useAutentication()
+    const {login, error: authError, loading}= useAutentication()
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
@@ -21,7 +21,7 @@ const Login = () => {
             password
         }
 
-        const res = await createUser(user)
+        const res = await login(user)
 
         console.log(res)
     }
@@ -33,7 +33,7 @@ const Login = () => {
     },[authError])
 
   return (
-    <div className={styles.login0000000000000000000000000000}>
+    <div className={styles.login}>
         <h1>Entrar</h1>
         <p>Faça o login para poder utilizar o sistema.</p>
         <form onSubmit={handleSubmit}>
