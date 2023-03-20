@@ -2,6 +2,7 @@ import styles from './Home.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+import PostDetail from '../../components/PostDetail'
 
 const Home = () => {
 
@@ -22,7 +23,7 @@ const Home = () => {
           <button className="btn btn-dark">Pesquisar</button>
         </form>
         <div>
-          {posts && posts.map((post)=> <h3>{post.title}</h3>)}
+          {posts && posts.map((post)=> <PostDetail key={post.id} post={post}/>)}
           {posts && posts.length === 0 && (
             <div className={styles.noposts}>
               <p>Não foram encontrados posts...</p>
